@@ -35,6 +35,7 @@ This script manipulates file/folder ownership and permissions. The default setup
 
 - Python 3.x
 - Linux environment with shell access
+- docker.io, docker-compose (optional)
 
 ## Installation
 
@@ -78,6 +79,15 @@ Add to the end of the file:
 ```bash
 YOUR_USERNAME_HERE ALL=(ALL:ALL) NOPASSWD: ALL
 ```
+## Docker
+This Fork comes with additional Files so the permissions monitor can be run directly inside a docker-container automatically after startup.  
+For this to work, do the following:
+* install docker.io, docker-compose
+* navigate to the clone directory
+* build the docker image with ```docker build -t grav:perms .```
+* start the image with ```docker-compose up -d```
+* point your browser to http://localhost/admin - create admin user from there upon first login, then proceed as usual
+* if unsure what is going on, log into the docker image with ```docker exec -it playground bash```, check console output, log File, processes etc.
 
 ## Logging
 

@@ -1,23 +1,22 @@
+#!/usr/bin/env python3
+
 import os
 import time
 import subprocess
 import logging
 
-
-monitor_dir = "/var/www/DOMAIN-DIRECTORY/"
-excluded_dirs = ['.git', '.svn']
+# monitor_dir = "/home/josswern/docker/Grav/Playground/web/user"
+monitor_dir = "/var/www/html/user/"
+excluded_dirs = ['.git', '.svn', 'data']
 scan_interval = 30  # Time between scans (in seconds)
 print_scan_time = True  # Toggle for printing directory scan time (True/False)
 script_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'perms-script.sh')
 
-
-
-
 timer_initiated = False
 first_change_logged = False  # Initialize a flag for one-time logging
 
-# Initialize logger settings
-logging.basicConfig(filename='./logs/changes.log', level=logging.INFO, format='%(asctime)s - %(message)s')
+# Initialize logger settings - note: Log File is in docker WORKDIR (/var/www) !
+logging.basicConfig(filename='./perm_changes.log', level=logging.INFO, format='%(asctime)s - %(message)s')
 
 def initial_scan(directory):
     initial_state = {}

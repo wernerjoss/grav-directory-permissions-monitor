@@ -1,0 +1,14 @@
+
+---
+version: "2"
+
+services:
+  docker-grav:
+    image: grav:perms
+    container_name: playground
+    ports:
+      - "80:80"
+    restart: always
+    # See 'Custom PHP codebase' for instructions for volumes.
+    volumes:
+      - ./web:/var/www/html:rw
