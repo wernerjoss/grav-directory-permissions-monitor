@@ -1,5 +1,7 @@
 # Grav Directory Permissions Monitor
 
+## please note that this Fork is no longer supported an will be archived soon, as I have given up on Grav development since my switch to [Hugo](https://gohugo.io) in 2024.
+
 ## Author
 Eric Stauffer  
 [Website](https://www.ericjstauffer.com)
